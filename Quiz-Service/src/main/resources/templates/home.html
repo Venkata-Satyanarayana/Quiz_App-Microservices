@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Welcome to Programmer's Arena</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap');
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+            font-family: 'Roboto', sans-serif;
+            color: #fff;
+        }
+        .container {
+            max-width: 850px;
+            margin: 80px auto;
+            padding: 50px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            color: #00ffe7;
+            margin-bottom: 40px;
+        }
+        .button-row {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+        .button-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 250px;
+        }
+        .btn {
+            width: 100%;
+            padding: 18px 25px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            text-decoration: none;
+            color: #fff;
+            position: relative;
+        }
+        .btn:hover {
+            transform: scale(1.06);
+        }
+        .btn-primary {
+            background: #1f8ef1;
+        }
+        .btn-success {
+            background: #20c997;
+        }
+        .new-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: crimson;
+            color: white;
+            font-size: 0.65rem;
+            padding: 3px 6px;
+            border-radius: 12px;
+        }
+        .note {
+            margin-top: 8px;
+            font-size: 0.9rem;
+            color: #ffeb3b;
+            font-style: italic;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to Programmer's Arena</h1>
+
+    <div class="button-row">
+        <div class="button-wrapper">
+            <a th:href="@{/quiz}" class="btn btn-primary">Play Quiz</a>
+        </div>
+
+        <div class="button-wrapper">
+            <a th:href="@{/quiz-ai(username=${username})}" class="btn btn-success">
+                Play Quiz with AI
+                <span class="new-badge">NEW</span>
+            </a>
+            <div class="note">Requires Ollama installed on your machine.</div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

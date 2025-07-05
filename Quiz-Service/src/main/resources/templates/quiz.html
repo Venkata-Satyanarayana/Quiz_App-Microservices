@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Programmers Arena</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+            font-family: 'Roboto', sans-serif;
+            color: #ffffff;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            text-align: center;
+            margin: 40px 0 20px;
+            color: #00ffe7;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        form {
+            margin-bottom: 40px;
+            background-color: rgba(255, 255, 255, 0.07);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 255, 231, 0.1);
+        }
+
+        h2 {
+            font-size: 1.6rem;
+            color: #00ffe7;
+            margin-bottom: 20px;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        select, input[type=number], input[type=text], button {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        select, input[type=number], input[type=text] {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        button {
+            background-color: #1f8ef1;
+            color: #fff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #0d6efd;
+            transform: scale(1.03);
+        }
+
+        .radio-item {
+            text-align: left;
+            margin: 10px 0;
+        }
+
+        label {
+            margin-left: 8px;
+        }
+
+        input[type="radio"] {
+            transform: scale(1.2);
+        }
+
+        .logout-form {
+            text-align: right;
+            margin: 20px 40px 0 0;
+        }
+
+        .logout-form button {
+            background-color: #ff4d4d;
+            padding: 10px 20px;
+        }
+
+        .logout-form button:hover {
+            background-color: #ff1a1a;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Logout button -->
+<div class="logout-form">
+    <form th:action="@{/logout}" method="post">
+        <button type="submit">Logout</button>
+    </form>
+</div>
+
+<h1>Welcome to Programmers Arena</h1>
+
+<div class="container">
+    <!-- Quiz selection form -->
+    <form th:action="@{/startQuiz}" method="get">
+        <h2>Select a Quiz to Start</h2>
+        <div th:each="quiz : ${quizzes}" class="radio-item">
+            <input type="radio" name="quizId" th:value="${quiz.id}" required>
+            <label th:text="${quiz.title}">Quiz Title</label>
+        </div>
+        <button type="submit">Open Quiz</button>
+    </form>
+
+    <!-- Quiz creation form -->
+    <form th:action="@{/create}" th:object="${quizDTO}" method="post">
+        <h2>Create a New Quiz</h2>
+        <select th:field="*{category}" required>
+            <option value="">-- Select Language --</option>
+            <option value="Java">Java</option>
+            <option value="Python">Python</option>
+            <option value="C++">C++</option>
+        </select>
+        <input type="number" th:field="*{numQuestions}" placeholder="Number of Questions" required>
+        <input type="text" th:field="*{title}" placeholder="Quiz Title" required>
+        <button type="submit">Generate Quiz</button>
+    </form>
+</div>
+
+</body>
+</html>

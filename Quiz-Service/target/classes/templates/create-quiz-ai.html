@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Create AI Quiz</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #141e30, #243b55);
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 40px;
+      text-align: center;
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      width: 500px;
+      margin: auto;
+    }
+
+    select, input, button {
+      width: 100%;
+      padding: 12px;
+      margin: 15px 0;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+    }
+
+    select, input {
+      background-color: #f0f0f0;
+      color: black;
+    }
+
+    button {
+      background-color: #00c9a7;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00b395;
+    }
+
+    .success {
+      font-size: 1.2rem;
+      color: #00ffae;
+      margin-top: 20px;
+    }
+
+    .error {
+      font-size: 1.1rem;
+      color: #ff4d4d;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .play-button {
+      background-color: #1f8ef1;
+      font-size: 1.1rem;
+      margin-top: 20px;
+    }
+
+    .play-button:hover {
+      background-color: #0d6efd;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Create AI-Powered Quiz</h1>
+
+  <!-- Show form only if quiz not created and no error -->
+  <form th:action="@{/createwAI(username=${username})}"
+        th:object="${quizDTO}"
+        method="post"
+        th:if="${quizCreated != true and ollamaFailed != true}">
+
+    <input type="hidden" name="username" th:value="${username}" />
+
+    <select th:field="*{category}" required>
+      <option value="" disabled selected>Select Language</option>
+      <option value="Java">Java</option>
+      <option value="Python">Python</option>
+    </select>
+
+    <input type="number" th:field="*{numQuestions}" placeholder="Number of Questions" required />
+
+    <button type="submit">Generate Quiz</button>
+  </form>
+
+  <!-- Success message -->
+  <div th:if="${quizCreated == true}">
+    <p class="success">🎉 Quiz successfully generated using AI!</p>
+    <a th:href="@{/startQuizAI(username=${username})}">
+      <button class="play-button">Play Now</button>
+    </a>
+  </div>
+
+  <!-- Failure message -->
+  <div th:if="${ollamaFailed == true}">
+    <p class="error">❌ Unable to connect to Ollama AI. Please try again later.</p>
+  </div>
+</div>
+
+</body>
+</html>

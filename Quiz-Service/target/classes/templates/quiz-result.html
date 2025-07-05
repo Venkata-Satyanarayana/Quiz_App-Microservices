@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Quiz Result</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 50px;
+            background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+            font-family: 'Roboto', sans-serif;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            color: #00ffe7;
+            margin-bottom: 40px;
+        }
+
+        .result-box {
+            display: inline-block;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            box-shadow: 0 0 25px rgba(0, 255, 231, 0.2);
+            backdrop-filter: blur(8px);
+            min-width: 350px;
+        }
+
+        .result-box p {
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+
+        .pass {
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .fail {
+            color: #ff4f4f;
+            font-weight: bold;
+        }
+
+        button {
+            background-color: #1f8ef1;
+            color: #fff;
+            border: none;
+            padding: 16px 30px;
+            border-radius: 10px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #0d6efd;
+            transform: scale(1.05);
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Quiz Result</h1>
+
+<div class="result-box">
+    <p><strong>Score:</strong> <span th:text="${score}">0</span> / <span th:text="${total}">0</span></p>
+
+    <p th:if="${passed}" class="pass">🎉 Congratulations! You passed!</p>
+    <p th:unless="${passed}" class="fail">❌ You failed. Try again!</p>
+
+    <a th:href="@{/quiz}"><button>Take Another Quiz</button></a>
+</div>
+
+</body>
+</html>
