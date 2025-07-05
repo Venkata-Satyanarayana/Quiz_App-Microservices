@@ -41,5 +41,8 @@ The system is broken down into microservices with Spring Cloud, supports RESTful
 
   Handled through service-layer filtering and username-based foreign keys.
 
+  <img width="885" alt="image" src="https://github.com/user-attachments/assets/8449e817-f16e-4007-8eec-d4e7961896ef" />
+
+
 
 
