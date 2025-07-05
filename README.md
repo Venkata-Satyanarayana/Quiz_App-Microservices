@@ -5,16 +5,15 @@ This is a Spring Boot microservices-based quiz application designed for multiple
 The system is broken down into microservices with Spring Cloud, supports RESTful APIs, uses Eureka for service discovery, and integrates Spring AI with Ollama’s Gemma 2B model for generating quiz questions.
 
 
-🛠️ Tech Stack
-Category	Tech Used
-Backend Framework	Java 17, Spring Boot 3.5.x
-Microservices	Eureka Server, Spring Cloud, Spring Security, Spring Data JPA
-Database	MySQL 8 (3 separate databases for services)
-AI Integration	Spring AI, Ollama with gemma:2b model
-Containerization	Docker, Docker Compose
-Build Tool	Maven
-Frontend	Thymeleaf (server-side rendered HTML)
-Others	Feign Clients for inter-service communication
+## 🛠️ Tech Stack
+### Category	                            ### Tech Used
+Backend Framework	           Java 17, Spring Boot 3.5.x
+Microservices	               Eureka Server, Spring Cloud, Spring Security, Spring Data JPA
+Database	                   MySQL 8 (3 separate databases for services)
+AI Integration	             Spring AI, Ollama with gemma:2b model
+Build Tool	                 Maven
+Frontend	                   Thymeleaf (server-side rendered HTML)
+Others	                     Feign Clients for inter-service communication
 
 ## 🔄 Working Process
 ### 🔐 1. User Registration & Authentication
