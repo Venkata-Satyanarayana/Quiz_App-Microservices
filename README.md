@@ -1,4 +1,4 @@
-# 🧠 Multi-User Quiz Microservices Application
+# 🧠 Multi-User Quiz Microservices Application (AI Enabled)
 ## 📘 Description
 This is a Spring Boot microservices-based quiz application designed for multiple users to register, log in, generate quizzes, and attempt questions. Each user’s quiz data (including AI-generated questions) is isolated, ensuring privacy and individual tracking.
 
