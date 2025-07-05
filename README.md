@@ -4,6 +4,18 @@ This is a Spring Boot microservices-based quiz application designed for multiple
 
 The system is broken down into microservices with Spring Cloud, supports RESTful APIs, uses Eureka for service discovery, and integrates Spring AI with Ollama’s Gemma 2B model for generating quiz questions.
 
+## User Interface:
+ <img width="885" alt="image" src="https://github.com/user-attachments/assets/8449e817-f16e-4007-8eec-d4e7961896ef" />
+
+ 
+###  Features:
+#### Play Quiz:
+This quiz gets the random questions from Database as user requested specifications like programming language and number of questions after user answered all the questions and submitted user will get score and result of the based based on score.
+      User can play with already generated quiz or user can generate the quiz the way user required.
+      
+#### Play Quiz with AI:
+This is a new feature where user will get the questions from an AI based on user requests and user will get the score and result based on score post submitting the quiz.Everytime user generates the questions user will get the newly generated questions. This feature requires Ollama : gemma 2b model which is a local AI service.
+
 
 ## 🛠️ Tech Stack
 ### Java 17, Spring Boot 3.5.x , Eureka Server, Spring Cloud, Spring Security, Spring Data JPA
@@ -41,17 +53,7 @@ The system is broken down into microservices with Spring Cloud, supports RESTful
 
   Handled through service-layer filtering and username-based foreign keys.
 
-## User Interface:
- <img width="885" alt="image" src="https://github.com/user-attachments/assets/8449e817-f16e-4007-8eec-d4e7961896ef" />
 
- 
-###  Features:
-#### Play Quiz:
-This quiz gets the random questions from Database as user requested specifications like programming language and number of questions after user answered all the questions and submitted user will get score and result of the based based on score.
-      User can play with already generated quiz or user can generate the quiz the way user required.
-      
-#### Play Quiz with AI:
-This is a new feature where user will get the questions from an AI based on user requests and user will get the score and result based on score post submitting the quiz.Everytime user generates the questions user will get the newly generated questions. This feature requires Ollama : gemma 2b model which is a local AI service.
       
 
  
