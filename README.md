@@ -43,10 +43,14 @@ The system is broken down into microservices with Spring Cloud, supports RESTful
 
 ## User Interface:
  <img width="885" alt="image" src="https://github.com/user-attachments/assets/8449e817-f16e-4007-8eec-d4e7961896ef" />
-### Features:
+
+ 
+###  Features:
 #### Play Quiz:
       This quiz gets the random questions from Database as user requested specifications like programming language and number of questions after user answered all the questions and submitted user will get score and result of the based based on score.
       User can play with already generated quiz or user can generate the quiz the way user required.
+
+      
       <img width="803" alt="image" src="https://github.com/user-attachments/assets/1eae32a4-8111-45fc-9913-5edefe1deaf1" />
 
 
